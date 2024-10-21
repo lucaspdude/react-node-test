@@ -8,7 +8,8 @@ const {
 } = require("./students-service");
 
 const handleGetAllStudents = asyncHandler(async (req, res) => {
-  const students = await getAllStudents();
+  const { name, className, section, roll } = req.query;
+  const students = await getAllStudents(req.query);
   res.json({
     students,
   });
